@@ -1,5 +1,5 @@
-import {Fragment} from "react"
-import './NavBarItem.css'
+import {Fragment} from "react";
+import './NavBarItem.css';
 
 const NavBarItem = (props) => {
     return (

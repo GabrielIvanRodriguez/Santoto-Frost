@@ -1,7 +1,7 @@
-import React from "react"
-import NavBarItem from "./NavBarItem/NavBarItem"
-import CartWidget from "./CartWidget/CartWidget"
-import './NavBar.css'
+import React from "react";
+import NavBarItem from "./NavBarItem/NavBarItem";
+import CartWidget from "./CartWidget/CartWidget";
+import './NavBar.css';
 
 const NavBar = (props) => {
     return (

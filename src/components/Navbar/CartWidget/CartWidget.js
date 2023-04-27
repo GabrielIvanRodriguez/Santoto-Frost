@@ -1,5 +1,5 @@
-import { Fragment } from 'react'
-import './CartWidget.css'
+import { Fragment } from 'react';
+import './CartWidget.css';
 
 const CartWidget = (props) => {
     return (

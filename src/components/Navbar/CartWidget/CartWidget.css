@@ -1,0 +1,11 @@
+.notif{
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+    margin-top: 15px;
+    margin-bottom:0px;
+    color: blue;
+    font-size: 11px;
+    background-color: lightblue;
+    border-radius: 50%;
+}

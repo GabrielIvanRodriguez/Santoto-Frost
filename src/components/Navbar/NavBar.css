@@ -1,0 +1,43 @@
+.header{
+    display:flex;
+    align-items: center;
+    align-content: center;
+    height: 54px;
+}
+
+.navBar{
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    width: 90%;
+    height: 100%;
+}
+
+.itemList{
+    display: flex;
+    justify-content: flex-start;
+    gap: 5%;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    margin-left: 15px;
+}
+
+.logo{
+    font-size: 20px;
+    margin:0;
+    width: 15%;
+    height: 100%;
+    color: blue;
+    background-color: lightblue;
+    display: flex;
+    align-items: center ;
+    justify-content: center;
+    font-weight: bold;
+}
+
+ul{
+    margin:0;
+    list-style: none;
+}

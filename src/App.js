@@ -1,16 +1,13 @@
 import './App.css';
-import NavBar from './components/NavBar/NavBar';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import AllRoutes from './routes/AllRoutes'
+
 
 function App() {
   return (
     <div className="App">
-      <header>
 
-        <NavBar items={['Inicio', 'Categorias','Sobre nosotros','Sucursales','Contacto']} navBarLogo={'Santoto Frost'} />
+      <AllRoutes/>
 
-      </header>
-      <ItemListContainer greeting={'Bienvenidos a Santoto Frost'}/>
     </div>
   )
 }

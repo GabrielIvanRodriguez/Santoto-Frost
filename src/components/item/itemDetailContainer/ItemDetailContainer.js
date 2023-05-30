@@ -158,20 +158,21 @@ const ItemDetailContainer = () => {
     }
   ]
 
-  const allProducts = [...processedProducts,...pastaProducts];
+  const allProducts = [processedProducts,pastaProducts];
 
 
   useEffect( () => {
-    console.log(id === allProducts[0].id)
     setTimeout( () => {
       const found = allProducts.find( (product) => product.id === id)
       setProduct(found);
+      console.log(found);
       setLoading(false);
     }, 2000)
-  },[id])
+  },[id,allProducts])
 
   const addToCart = (product) => {
     setCart(product);
+    console.log(cart);
   }
 
   return (

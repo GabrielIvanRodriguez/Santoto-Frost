@@ -158,7 +158,7 @@ const ItemDetailContainer = () => {
     }
   ]
 
-  const allProducts = [processedProducts,pastaProducts];
+  const allProducts = [...processedProducts,...pastaProducts];
 
 
   useEffect( () => {

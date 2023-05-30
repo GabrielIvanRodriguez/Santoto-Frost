@@ -156,7 +156,7 @@ const ItemListContainer = () => {
             <hr />
             <div className="d-flex flex-wrap">
                 {
-                    processedProducts.map((product) => <Item key={product.id} imgRoute={product.imgRoute} name={product.name} description={product.description} weight={product.weight} amount={product.amount} price={product.price} stock={product.stock} />)
+                    processedProducts.map((product) => <Item key={product.id} id={product.id} imgRoute={product.imgRoute} name={product.name} description={product.description} weight={product.weight} amount={product.amount} price={product.price} stock={product.stock} />)
                 }
             </div>
             <h3>Pastas</h3>

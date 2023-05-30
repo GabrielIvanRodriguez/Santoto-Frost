@@ -1,4 +1,5 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import Item from "../../../components/item/Item"
 import arosCebolla from "./../../../assets/img/arosCebolla.jpg"
 import bastonesMuzza from "./../../../assets/img/bastonesMuzza.jpg"
@@ -14,9 +15,15 @@ import sorrentinos from "./../../../assets/img/sorrentinos.jpg"
 
 const ItemListContainer = () => {
 
+    const navigate = useNavigate();
+    const { category } = useParams();
+    const [sCategory, setSCategory] = useState([]);
+    const [loading, setLoading] = useState(true);
+
     const processedProducts = [
         {
             id: "000001",
+            category: "Productos Elaborados",
             imgRoute: arosCebolla,
             name: "Aros de cebolla",
             description: "Aros de cebolla elaborados por Santoto Frost",
@@ -27,6 +34,7 @@ const ItemListContainer = () => {
         },
         {
             id: "000002",
+            category: "Productos Elaborados",
             imgRoute: bastonesMuzza,
             name: "Bastones de muzzarella",
             description: "Bastones de muzarrella elaborados por Santoto Frost",
@@ -37,6 +45,7 @@ const ItemListContainer = () => {
         },
         {
             id: "000003",
+            category: "Productos Elaborados",
             imgRoute: bastonesPollo,
             name: "Bastones de pollo capresse",
             description: "Bastones de pollo elaborados por Santoto Frost",
@@ -47,6 +56,7 @@ const ItemListContainer = () => {
         },
         {
             id: "000004",
+            category: "Productos Elaborados",
             imgRoute: croquetasEspinaca,
             name: "Croquetas de espinaca y queso",
             description: "Croquetas de espinaca y queso elaboradas por Santoto Frost",
@@ -57,6 +67,7 @@ const ItemListContainer = () => {
         },
         {
             id: "000005",
+            category: "Productos Elaborados",
             imgRoute: croquetasJyq,
             name: "Croquetas de papa, jamón y queso",
             description: "Croquetas de papa, jamón y queso elaborados por Santoto Frost",
@@ -67,6 +78,7 @@ const ItemListContainer = () => {
         },
         {
             id: "000006",
+            category: "Productos Elaborados",
             imgRoute: empanadasCarne,
             name: "Empanadas de carne",
             description: "Empanadas de carne elaboradas por Santoto Frost",
@@ -77,6 +89,7 @@ const ItemListContainer = () => {
         },
         {
             id: "000007",
+            category: "Productos Elaborados",
             imgRoute: empanadasJyq,
             name: "Empanadas de jamón y queso",
             description: "Empanadas de jamón y queso elaboradas por Santoto Frost",
@@ -87,6 +100,7 @@ const ItemListContainer = () => {
         },
         {
             id: "000008",
+            category: "Productos Elaborados",
             imgRoute: empanadasVerdura,
             name: "Empanadas de verdura",
             description: "Empanadas de carne elaboradas por Santoto Frost",
@@ -100,6 +114,7 @@ const ItemListContainer = () => {
     const pastaProducts = [
         {
             id: "000009",
+            category: "Pastas",
             imgRoute: ravioles,
             name: "Ravioles de ricota y maíz",
             description: "Ravioles de ricota y maíz elaborados por Santoto Frost",
@@ -110,6 +125,7 @@ const ItemListContainer = () => {
         },
         {
             id: "000010",
+            category: "Pastas",
             imgRoute: ravioles,
             name: "Ravioles de jamón y queso",
             description: "Ravioles de jamón y queso elaborados por Santoto Frost",
@@ -120,6 +136,7 @@ const ItemListContainer = () => {
         },
         {
             id: "000011",
+            category: "Pastas",
             imgRoute: ñoquis,
             name: "Ñoquis de papa",
             description: "Ñoquis de papa elaborados por Santoto Frost",
@@ -130,6 +147,7 @@ const ItemListContainer = () => {
         },
         {
             id: "000012",
+            category: "Pastas",
             imgRoute: sorrentinos,
             name: "Sorrentinos de jamón y queso",
             description: "Sorrentinos de jamón y ques elaborados por Santoto Frost",
@@ -140,6 +158,7 @@ const ItemListContainer = () => {
         },
         {
             id: "000013",
+            category: "Pastas",
             imgRoute: sorrentinos,
             name: "Sorrentinos de calabaza",
             description: "Sorrentinos de calabaza elaborados por Santoto Frost",
@@ -149,23 +168,62 @@ const ItemListContainer = () => {
             stock: 10
         }
     ]
+    const allProducts = [...processedProducts, ...pastaProducts];
+
+    useEffect(() => {
+        setTimeout(() => {
+            const selected = allProducts.find((product) => product.category === category)
+            setSCategory(selected);
+            setLoading(false);
+        }, 2000)
+    }, [category])
 
     return (
         <Fragment>
-            <h3>Productos elaborados</h3>
-            <hr />
-            <div className="d-flex flex-wrap">
-                {
-                    processedProducts.map((product) => <Item key={product.id} id={product.id} imgRoute={product.imgRoute} name={product.name} description={product.description} weight={product.weight} amount={product.amount} price={product.price} stock={product.stock} />)
-                }
-            </div>
-            <h3>Pastas</h3>
-            <hr />
-            <div className="d-flex flex-wrap">
-                {
-                    pastaProducts.map((product) => <Item key={product.id} id={product.id} imgRoute={product.imgRoute} name={product.name} description={product.description} weight={product.weight} amount={product.amount} price={product.price} stock={product.stock} />)
-                }
-            </div>
+
+            if (loading){
+                <h1>Cargando...</h1>
+            }else if(!loading && sCategory === "Productos Elaborados"){
+                <div>
+                    <h1>{sCategory}</h1>
+                    <div className="d-flex flex-wrap">
+                        {
+                            processedProducts.map((product) => <Item key={product.id} id={product.id} category={product.category} imgRoute={product.imgRoute} name={product.name} description={product.description} weight={product.weight} amount={product.amount} price={product.price} stock={product.stock} />)
+                        }
+                    </div>
+                </div>
+
+            }else if( !loading && sCategory === "Pastas"){
+                <div>
+                    <h1>{sCategory}</h1>
+                    <div className="d-flex flex-wrap">
+                        {
+                            pastaProducts.map((product) => <Item key={product.id} id={product.id} category={product.category} imgRoute={product.imgRoute} name={product.name} description={product.description} weight={product.weight} amount={product.amount} price={product.price} stock={product.stock} />)
+                        }
+                    </div>
+                </div>
+            }else{
+                <div>
+                    <h3>Productos elaborados</h3>
+                    <hr />
+                    <div className="d-flex flex-wrap">
+                        {
+                            processedProducts.map((product) => <Item key={product.id} id={product.id} category={product.category} imgRoute={product.imgRoute} name={product.name} description={product.description} weight={product.weight} amount={product.amount} price={product.price} stock={product.stock} />)
+                        }
+                    </div>
+                    <h3>Pastas</h3>
+                    <hr />
+                    <div className="d-flex flex-wrap">
+                        {
+                            pastaProducts.map((product) => <Item key={product.id} id={product.id} category={product.category} imgRoute={product.imgRoute} name={product.name} description={product.description} weight={product.weight} amount={product.amount} price={product.price} stock={product.stock} />)
+                        }
+                    </div>
+                </div>
+
+            }
+
+
+
         </Fragment>
     )
 }

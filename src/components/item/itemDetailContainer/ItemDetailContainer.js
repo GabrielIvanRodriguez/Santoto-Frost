@@ -168,7 +168,7 @@ const ItemDetailContainer = () => {
       console.log(found);
       setLoading(false);
     }, 2000)
-  },[id,allProducts])
+  },[id])
 
   const addToCart = (product) => {
     setCart(product);
@@ -186,7 +186,7 @@ const ItemDetailContainer = () => {
         <p>Peso: {product.weight}</p>
         <p>Unidades: {product.amount}</p>
         <p>Cantidades disponibles: {product.stock}</p>
-        <button onClick={addToCart(product)}>Agregar al carrito</button>
+        <button onClick={()=>addToCart(product)}>Agregar al carrito</button>
         <button onClick={() => navigate(-1)} Volver></button>
       </div>
       )

@@ -171,28 +171,25 @@ const ItemListContainer = () => {
 
     useEffect(() => {
         setTimeout(() => {
-            if(category !== ""){
-                const selected = allProducts.filter(product => product.category === category)
-                setsCategory(selected);
-                setLoading(false)
-            }
+        const selected = category ? allProducts.filter(product => product.category === category) : allProducts;
+        setsCategory(selected);
+        setLoading(false);
         }, 2000);
-      }, [category]);
+        }, [category]);
 
     return (
         <Fragment>
-            {loading && sCategory === "" && (
-                allProducts.map((product) => <Item key={product.id} id={product.id} category={product.category} imgRoute={product.imgRoute} name={product.name} description={product.description} weight={product.weight} amount={product.amount} price={product.price} stock={product.stock} />)
+            {loading && category !=="" && (
+                sCategory   .map((product) => <Item key={product.id} id={product.id} category={product.category} imgRoute={product.imgRoute} name={product.name} description={product.description} weight={product.weight} amount={product.amount} price={product.price} stock={product.stock} />)
             )}
 
-            {loading && sCategory !== "" &&(
+            {loading && sCategory.lenght !== 0 &&(
                 <h1>Cargando...</h1>
             )}
 
             {!loading && (
                 sCategory.map((product) => <Item key={product.id} id={product.id} category={product.category} imgRoute={product.imgRoute} name={product.name} description={product.description} weight={product.weight} amount={product.amount} price={product.price} stock={product.stock} />)
             )}
-          
         </Fragment>
     )
 }

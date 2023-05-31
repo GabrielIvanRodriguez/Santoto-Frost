@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import Item from "../../../components/item/Item"
 import arosCebolla from "./../../../assets/img/arosCebolla.jpg"
 import bastonesMuzza from "./../../../assets/img/bastonesMuzza.jpg"
@@ -15,9 +15,8 @@ import sorrentinos from "./../../../assets/img/sorrentinos.jpg"
 
 const ItemListContainer = () => {
 
-    const navigate = useNavigate();
     const { category } = useParams();
-    const [sCategory, setSCategory] = useState([]);
+    const [sCategory, setsCategory] = useState([]);
     const [loading, setLoading] = useState(true);
 
     const processedProducts = [
@@ -172,58 +171,15 @@ const ItemListContainer = () => {
 
     useEffect(() => {
         setTimeout(() => {
-            const selected = allProducts.find((product) => product.category === category)
-            setSCategory(selected);
-            setLoading(false);
-        }, 2000)
-    }, [category])
+          const selected = category ? allProducts.filter(product => product.category === category) : allProducts;
+          setsCategory(selected);
+          setLoading(false);
+        }, 2000);
+      }, [category]);
 
     return (
         <Fragment>
-
-            if (loading){
-                <h1>Cargando...</h1>
-            }else if(!loading && sCategory === "Productos Elaborados"){
-                <div>
-                    <h1>{sCategory}</h1>
-                    <div className="d-flex flex-wrap">
-                        {
-                            processedProducts.map((product) => <Item key={product.id} id={product.id} category={product.category} imgRoute={product.imgRoute} name={product.name} description={product.description} weight={product.weight} amount={product.amount} price={product.price} stock={product.stock} />)
-                        }
-                    </div>
-                </div>
-
-            }else if( !loading && sCategory === "Pastas"){
-                <div>
-                    <h1>{sCategory}</h1>
-                    <div className="d-flex flex-wrap">
-                        {
-                            pastaProducts.map((product) => <Item key={product.id} id={product.id} category={product.category} imgRoute={product.imgRoute} name={product.name} description={product.description} weight={product.weight} amount={product.amount} price={product.price} stock={product.stock} />)
-                        }
-                    </div>
-                </div>
-            }else{
-                <div>
-                    <h3>Productos elaborados</h3>
-                    <hr />
-                    <div className="d-flex flex-wrap">
-                        {
-                            processedProducts.map((product) => <Item key={product.id} id={product.id} category={product.category} imgRoute={product.imgRoute} name={product.name} description={product.description} weight={product.weight} amount={product.amount} price={product.price} stock={product.stock} />)
-                        }
-                    </div>
-                    <h3>Pastas</h3>
-                    <hr />
-                    <div className="d-flex flex-wrap">
-                        {
-                            pastaProducts.map((product) => <Item key={product.id} id={product.id} category={product.category} imgRoute={product.imgRoute} name={product.name} description={product.description} weight={product.weight} amount={product.amount} price={product.price} stock={product.stock} />)
-                        }
-                    </div>
-                </div>
-
-            }
-
-
-
+           {loading ? <h1>Cargando...</h1> : sCategory.map((product) => <Item key={product.id} id={product.id} category={product.category} imgRoute={product.imgRoute} name={product.name} description={product.description} weight={product.weight} amount={product.amount} price={product.price} stock={product.stock} />) } 
         </Fragment>
     )
 }

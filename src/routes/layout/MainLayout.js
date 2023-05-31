@@ -4,15 +4,11 @@ import NavBar from '../../components/NavBar/NavBar'
 
 const navBarItems=[
   {
-    path:"/category/todos",
-    name:"Todos"
+    path:"/category/Productos Elaborados",
+    name:"Productos elaborados"
   },
   {
-    path:"/category/elaborados",
-    name:"Elaborados"
-  },
-  {
-    path:"/category/pastas",
+    path:"/category/Pastas",
     name:"Pastas"
   }
 ]

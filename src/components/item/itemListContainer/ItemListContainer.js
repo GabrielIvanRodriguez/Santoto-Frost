@@ -176,9 +176,11 @@ const ItemListContainer = () => {
         }).then( (res)=>{
             setLoading(false);
             setCatalogue(res);
+            const selected = category ? catalogue.filter((product) => product.category === category) : catalogue;
+            setCatalogue(selected);
+            console.log(catalogue); 
         })
-        const selected = category ? catalogue.filter((product) => product.category === category) : catalogue;
-        setCatalogue(selected);
+
     }, [category]);
 
     return (

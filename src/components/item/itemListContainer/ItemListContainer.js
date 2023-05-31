@@ -16,10 +16,11 @@ import sorrentinos from "./../../../assets/img/sorrentinos.jpg"
 const ItemListContainer = () => {
 
     const { category } = useParams();
+    const [catalogue, setCatalogue] = useState([]);
     const [sCategory, setsCategory] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const processedProducts = [
+    const allProducts = [
         {
             id: "000001",
             category: "Productos Elaborados",
@@ -107,10 +108,7 @@ const ItemListContainer = () => {
             amount: 6,
             price: 950,
             stock: 10
-        }
-    ]
-
-    const pastaProducts = [
+        },
         {
             id: "000009",
             category: "Pastas",
@@ -167,29 +165,32 @@ const ItemListContainer = () => {
             stock: 10
         }
     ]
-    const allProducts = [...processedProducts, ...pastaProducts];
+
 
     useEffect(() => {
-        setTimeout(() => {
-        const selected = category ? allProducts.filter(product => product.category === category) : allProducts;
-        setsCategory(selected);
-        setLoading(false);
-        }, 2000);
-        }, [category]);
+        setLoading(true);
+        const prom = new Promise ( (resolve) => {
+            setTimeout(() => {
+                resolve(allProducts)
+            }, 2000);
+        }).then( (res)=>{
+            setLoading(false);
+            setCatalogue(res);
+        })
+        const selected = category ? catalogue.filter((product) => product.category === category) : catalogue;
+        setCatalogue(selected);
+    }, [category]);
 
     return (
         <Fragment>
-            {loading && category !=="" && (
-                sCategory   .map((product) => <Item key={product.id} id={product.id} category={product.category} imgRoute={product.imgRoute} name={product.name} description={product.description} weight={product.weight} amount={product.amount} price={product.price} stock={product.stock} />)
-            )}
-
-            {loading && sCategory.lenght !== 0 &&(
+            {loading &&(
                 <h1>Cargando...</h1>
             )}
 
-            {!loading && (
-                sCategory.map((product) => <Item key={product.id} id={product.id} category={product.category} imgRoute={product.imgRoute} name={product.name} description={product.description} weight={product.weight} amount={product.amount} price={product.price} stock={product.stock} />)
+            {!loading && catalogue.length > 0 && (
+                catalogue.map((product) => <Item key={product.id} id={product.id} category={product.category} imgRoute={product.imgRoute} name={product.name} description={product.description} weight={product.weight} amount={product.amount} price={product.price} stock={product.stock} />)
             )}
+
         </Fragment>
     )
 }

@@ -17,7 +17,6 @@ const ItemListContainer = () => {
 
     const { category } = useParams();
     const [catalogue, setCatalogue] = useState([]);
-    const [sCategory, setsCategory] = useState([]);
     const [loading, setLoading] = useState(true);
 
     const allProducts = [
@@ -166,7 +165,6 @@ const ItemListContainer = () => {
         }
     ]
 
-
     useEffect(() => {
         setLoading(true);
         const prom = new Promise ( (resolve) => {
@@ -183,8 +181,12 @@ const ItemListContainer = () => {
 
     }, [category]);
 
+
+
     return (
         <Fragment>
+            
+
             {loading &&(
                 <h1>Cargando...</h1>
             )}

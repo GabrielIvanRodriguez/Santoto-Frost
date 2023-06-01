@@ -5,8 +5,9 @@ import './NavBar.css';
 
 const NavBar = (props) => {
 
-    const {navBarItems} = props;
-
+    const {navBarItems} = props;                                            //me traigo los items que van a ir en el navBar y que vienen por props
+                                                                            //renderizo navbar de boostrap haciendo uso de NavLink para redireccionar desde el logo e inicio al index,
+                                                                            //y luego cada categoria al path seteado en el comp MainLayout
     return (
         <nav className="navbar navbar-expand-lg bg-white sticky-top">
             <div className="container-fluid">

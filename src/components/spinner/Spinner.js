@@ -1,5 +1,5 @@
 import React from 'react'
-
+                                                                    //spinner de react 
 const Spinner = () => {
     return (
         <div className="clearfix m-5">

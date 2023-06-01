@@ -4,20 +4,19 @@ import { useNavigate } from 'react-router-dom'
 
 
 const ItemDetail = (props) => {
-    const { product } = props;
-    const navigate = useNavigate();
-    const [cart, setCart] = useState([]);
-    const [quant, setQuant] = useState(0);
-    const [canAdd, setCanAdd] = useState(true);
-    const [canSub, setCanSub] = useState(false);
+    const { product } = props;                                                  //trae los atributos del objeto product (el producto a renderizar)
 
-    const add = () => setQuant (quant+1);
+    const navigate = useNavigate();   
 
+    const [cart, setCart] = useState([]);                                       //creo un arreglo en estado para MAS ADELANTE guardar los productos que agrego al carrito
+    const [quant, setQuant] = useState(0);                                      //creo una variable de estado que me guarda la cantidad que sume al carrito
+    const [canAdd, setCanAdd] = useState(true);                                 //creo una variable de estado booleano para permitir agregar unidades o no
+    const [canSub, setCanSub] = useState(false);                                 //creo una variable de estado booleano para permitir restar unidades o no
 
-    
-    const subtract = () => setQuant(quant-1);
+    const add = () => setQuant (quant+1);                                       //funcion para agregar en button add
+    const subtract = () => setQuant(quant-1);                                   //funcion para restar en button subtract
 
-    useEffect ( ()=>{
+    useEffect ( ()=>{                                                           //validaciones que permiten, en base a la variable de dependencia, apretar los buttons de restar/sumar
         if(quant === product.stock){
             setCanAdd(false)
         }
@@ -30,18 +29,18 @@ const ItemDetail = (props) => {
         if(quant > 0){
             setCanSub(true)
         }
-    },[quant])
+    },[quant])                                                                  //variable de dependencia
 
 
 
 
-    const addToCart = (product) => {
+    const addToCart = (product) => {                                           //funcion para MAS ADELANTE agregar al carrito
         setCart(product);
         console.log(cart);
     }
-
+                                                                                //renderizo el producto
     return (
-        <div>
+        <div>                                                                                         
             <img src={product.imgRoute} alt="comida" />
             <h1>{product.name}</h1>
             <p>{product.description}</p>

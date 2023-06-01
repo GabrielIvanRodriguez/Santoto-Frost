@@ -16,11 +16,12 @@ import sorrentinos from "./../../../assets/img/sorrentinos.jpg"
 
 const ItemListContainer = () => {
 
-    const { category } = useParams();
-    const [catalogue, setCatalogue] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const { category } = useParams();                                                   //me traigo el id de categoria que viene por parametro
 
-    const allProducts = [
+    const [catalogue, setCatalogue] = useState([]);                                     //creo una variable de estado para el grupo de productos que voy a mostrar
+    const [loading, setLoading] = useState(true);                                       //creo una variable de estado para usar el spinnin
+
+    const allProducts = [                                                               //simulo json
         {
             id: "000001",
             category: "Productos Elaborados",
@@ -166,23 +167,22 @@ const ItemListContainer = () => {
         }
     ]
 
-    useEffect(() => {
-        setLoading(true);
-        const prom = new Promise((resolve) => {
-            setTimeout(() => {
+    useEffect(() => {                                                                    //controlo el ciclo de vida del componente
+        setLoading(true);                                                               //simulo que carga
+        const prom = new Promise((resolve) => {                                         //creo una promesa
+            setTimeout(() => {                                                          //simulo delay de respuesta
                 resolve(allProducts)
             }, 2000);
-        }).then((res) => {
-            setLoading(false);
-            const selected = category ? res.filter((product) => product.category === category) : res;
-            setCatalogue(selected);
-            console.log(catalogue);
+        }).then((res) => {                                                                              //si se resuelve la promesa, uso la respuesta para...
+            setLoading(false);                                                                             //dejo de cargar
+            const selected = category ? res.filter((product) => product.category === category) : res;      //si category existe, filtro la respuesta comparando la categoria del prod     
+            setCatalogue(selected);                                                                        //si no hay categoria, me guardo la respuesta entera. La seteo en estado
         })
 
-    }, [category]);
+    }, [category]);                                                                                       //dependencia
 
 
-
+                                                                                                //renderizo spinner si esta cargando, sino renderizo todos los productos seleccionados
     return (
         <Fragment>
                 {loading && (

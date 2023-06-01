@@ -5,7 +5,9 @@ import MainLayout from './layout/MainLayout'
 import Home from '../pages/Home'
 import ItemListContainer from '../components/item/itemListContainer/ItemListContainer'
 
-
+                                                          //seteo las rutas que va a tener mi pagina, donde en cada una voy a decir qué parametro tiene, y a donde redirecciona.
+                                                          //utilizo 4 rutas atómicas, y 1 que va a tener hijos dentro de ella para lograr asignarlos a traves del llamado a NavBar
+                                                          //en el componente MainLayout
 const AllRoutes = () => {
   return (
     <BrowserRouter>

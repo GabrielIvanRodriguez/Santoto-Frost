@@ -1,6 +1,7 @@
 import React,{Fragment} from 'react'
 import { Outlet } from 'react-router-dom'
-import NavBar from '../../components/NavBar/NavBar'
+import NavBar from '../../components/navBar/NavBar'
+import Footer from '../../components/footer/Footer'
 
 const navBarItems=[
   {
@@ -18,6 +19,7 @@ const MainLayout = () => {
     <Fragment>
       <NavBar navBarItems={navBarItems}/>
       <Outlet/>
+      <Footer/>
     </Fragment>
   )
 }

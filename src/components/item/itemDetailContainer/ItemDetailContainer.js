@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom';
-import './ItemDetailContainer.css';
+import { useParams } from 'react-router-dom';
+import Spinner from '../../spinner/Spinner'
+import ItemDetail from '../itemDetail/ItemDetail';
 import arosCebolla from "../../../assets/img/arosCebolla.jpg"
 import bastonesMuzza from "../../../assets/img/bastonesMuzza.jpg"
 import bastonesPollo from "../../../assets/img/bastonesPollo.jpg"
@@ -13,14 +14,15 @@ import empanadasJyq from "../../../assets/img/empanadasJyq.jpg"
 import empanadasVerdura from "../../../assets/img/empanadasVerdura.jpg"
 import sorrentinos from "../../../assets/img/sorrentinos.jpg"
 
+
 const ItemDetailContainer = () => {
 
-  const navigate = useNavigate();
+
   const { id } = useParams();
   console.log(id);  
   const [product, setProduct] = useState({});
   const [loading, setLoading] = useState(true);
-  const [cart, setCart] = useState([]);
+
 
   const allProducts = [
     {
@@ -177,26 +179,14 @@ const ItemDetailContainer = () => {
     }, 2000)
   },[id])
 
-  const addToCart = (product) => {
-    setCart(product);
-    console.log(cart);
-  }
+
 
   return (
     <Fragment>
-      {loading && <h1>Cargando...</h1>}
+      {loading && <Spinner/>}
 
       {!loading  && (
-        <div>
-        <img src={product.imgRoute} alt="comida"/>
-        <h1>{product.name}</h1>
-        <p>{product.description}</p>
-        <p>Peso: {product.weight}</p>
-        <p>Unidades: {product.amount}</p>
-        <p>Cantidades disponibles: {product.stock}</p>
-        <button onClick={()=>addToCart(product)}>Agregar al carrito</button>
-        <button onClick={() => navigate(-1)} Volver></button>
-      </div>
+        <ItemDetail product={product}/>
       )
 
       }

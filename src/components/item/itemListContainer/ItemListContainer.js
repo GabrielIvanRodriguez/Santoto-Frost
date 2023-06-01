@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Item from "../../../components/item/Item"
+import Spinner from "../../spinner/Spinner"
 import arosCebolla from "./../../../assets/img/arosCebolla.jpg"
 import bastonesMuzza from "./../../../assets/img/bastonesMuzza.jpg"
 import bastonesPollo from "./../../../assets/img/bastonesPollo.jpg"
@@ -167,16 +168,15 @@ const ItemListContainer = () => {
 
     useEffect(() => {
         setLoading(true);
-        const prom = new Promise ( (resolve) => {
+        const prom = new Promise((resolve) => {
             setTimeout(() => {
                 resolve(allProducts)
             }, 2000);
-        }).then( (res)=>{
+        }).then((res) => {
             setLoading(false);
-            setCatalogue(res);
-            const selected = category ? catalogue.filter((product) => product.category === category) : catalogue;
+            const selected = category ? res.filter((product) => product.category === category) : res;
             setCatalogue(selected);
-            console.log(catalogue); 
+            console.log(catalogue);
         })
 
     }, [category]);
@@ -185,15 +185,17 @@ const ItemListContainer = () => {
 
     return (
         <Fragment>
-            
+                {loading && (
+                    <Spinner/>
+                )}
+            <div className="d-flex flex-wrap">
 
-            {loading &&(
-                <h1>Cargando...</h1>
-            )}
 
-            {!loading && catalogue.length > 0 && (
-                catalogue.map((product) => <Item key={product.id} id={product.id} category={product.category} imgRoute={product.imgRoute} name={product.name} description={product.description} weight={product.weight} amount={product.amount} price={product.price} stock={product.stock} />)
-            )}
+                {!loading && catalogue.length > 0 && (
+                    catalogue.map((product) => <Item key={product.id} id={product.id} category={product.category} imgRoute={product.imgRoute} name={product.name} description={product.description} weight={product.weight} amount={product.amount} price={product.price} stock={product.stock} />)
+                )}
+            </div>
+
 
         </Fragment>
     )

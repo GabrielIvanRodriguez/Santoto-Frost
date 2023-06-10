@@ -5,12 +5,24 @@ import Footer from '../../components/footer/Footer'
 
 const navBarItems=[                                                         //seteo los path de cada categoria para llevarlos al navBar
   {
-    path:"/category/Productos Elaborados",
+    path:"/category/Productos elaborados",
     name:"Productos elaborados"
   },
   {
     path:"/category/Pastas",
     name:"Pastas"
+  },
+  {
+    path:"/category/Panificacion",
+    name:"Panificacion"
+  },
+  {
+    path:"/category/Pescados",
+    name:"Pescados"
+  },
+  {
+    path:"/category/Papas",
+    name:"Papas"
   }
 ]
 

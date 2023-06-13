@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from 'react-router-dom';
-import CartWidget from "./cartWidget/CartWidget";
+import CartWidget from "../cart/cartWidget/CartWidget"
 import './NavBar.css';
 
 const NavBar = (props) => {
@@ -53,7 +53,7 @@ const NavBar = (props) => {
                             </form>
                         </div>
                     </div>
-                    <CartWidget amount={'1'} />
+                    <CartWidget/>
 
                 </div>
             </div>

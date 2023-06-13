@@ -5,6 +5,8 @@ import ItemDetailContainer from '../components/item/itemDetailContainer/ItemDeta
 import MainLayout from './layout/MainLayout'
 import Home from '../pages/Home'
 import ItemListContainer from '../components/item/itemListContainer/ItemListContainer'
+import CartProvider from '../context/CartProvider'
+import CartContainer from '../components/cart/cartContainer/CartContainer'
 
 
                                                           //seteo las rutas que va a tener mi pagina, donde en cada una voy a decir qué parametro tiene, y a donde redirecciona.
@@ -14,19 +16,19 @@ const AllRoutes = () => {
   return (
     <BrowserRouter>
       <GlobalProvider>
-        <Routes>
-              <Route path="/" element={'Santoto Frost'} />
-              <Route path="/" element={<Home/>} />
-              <Route path="/" element={<MainLayout/>}>
-                <Route index element={<Home/>}/>  
-                <Route path="category/:category" element={<ItemListContainer/>}/>
-                <Route path="item/:id" element={<ItemDetailContainer/>}/>
-              </Route>
-        </Routes>
-
+        <CartProvider>
+          <Routes>
+                <Route path="/" element={'Santoto Frost'} />
+                <Route path="/" element={<Home/>} />
+                <Route path="/" element={<MainLayout/>}>
+                  <Route index element={<Home/>}/>  
+                  <Route path="category/:category" element={<ItemListContainer/>}/>
+                  <Route path="item/:id" element={<ItemDetailContainer/>}/>
+                </Route>
+                <Route path="/cart" element={<CartContainer/>} />
+          </Routes>
+        </CartProvider>
       </GlobalProvider>
-
-      
     </BrowserRouter>
   )
 }

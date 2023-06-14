@@ -1,5 +1,5 @@
 import React, { createContext, useState} from 'react'
-import {alreadyInCart, setProductTogethers } from "../helpers/index"
+import {alreadyInCart} from "../helpers/index"
 
 
 export const CartContext = createContext('')                                                   //creo y exporto un contexto global para que lo puedan usar otros componentes

@@ -36,7 +36,7 @@ const ItemCount = ({ initial, stock, onAdd }) => {
             <button disabled={!canSub} onClick={subtract} type="button" className="btn btn-outline-danger "><i className="bi bi-dash-circle-fill"></i></button>
             <span>{quant}</span>
             <button disabled={!canAdd} onClick={add} type="button" className="btn btn-outline-primary"><i className="bi bi-plus-circle-fill"></i></button>
-            <button disabled={!canBuy} onClick={onAdd(quant)} type="button" className="btn btn-primary mx-1">Agregar al carrito</button>
+            <button disabled={!canBuy} onClick={()=>onAdd(quant)} type="button" className="btn btn-primary mx-1">Agregar al carrito</button>
           </div>
         </div>
     </div>

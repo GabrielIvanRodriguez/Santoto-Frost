@@ -17,7 +17,6 @@ const useGetProduct = () => {
             let findedProduct = findProduct.data();
             setProduct({id:findedProduct.id, ...findedProduct});
             setLoading(false)
-            alert('producto encontrado')
         }catch(error){
             alert('error, producto no encontrado')
         }

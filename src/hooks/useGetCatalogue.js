@@ -19,8 +19,7 @@ const useSetCatalogue = () => {
             const data = await getDocs(cat)                                                 //hasta que no termine la funcion getDocs que me trae un documento, no continuo
             const response = data.docs.map( doc =>doc={id:doc.id, ...doc.data()}  )         //una vez llega la respuesta, me la guardo como una copia mapeada del documento que trae objetos del tipo producto
             setCatalogue(response);     
-            setLoading(false)                                                    //lo guardo en la variable de estado cataloge
-            alert('catalogo cargado')                                                              //dejo de cargar
+            setLoading(false)                                                    //lo guardo en la variable de estado cataloge                                                            //dejo de cargar
 
         } catch(error){                                                                     //en caso de algun error...
             alert('error, no catalogo')                                                                //pagina de error  

@@ -9,10 +9,18 @@ const CartProvider = ({ children }) => {                                        
     const [cart,setCart] = useState([]);
 
 
-    const addCart = (product,quant) => alreadyInCart(cart,product) ? setCart(cart.map(item =>{return item.id === product.id ?{...item,quant:item.quant + quant}:item})) : setCart([...cart, {...product,quant}])
+    const addCart = (product,quant) =>{
+        if(alreadyInCart(cart,product)){
+            setCart(cart.map( item =>{
+               return item.id === product.id ? {...item, quant:(item.quant+quant)} : item
+            }))
+        }else{
+            setCart([...cart, {...product,quant}])
+        }
+    } 
     
     const quitFromCart = (productId) =>{
-        let newCart = cart.filter((e)=> e.id !== productId);
+        let newCart = cart.filter((prod)=> prod.id !== productId);
         setCart(newCart);
     }
 

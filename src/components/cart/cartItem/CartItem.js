@@ -1,5 +1,4 @@
 import React,{useContext} from 'react'
-import ItemCount from '../../item/itemCount/ItemCount';
 import { CartContext } from '../../../context/CartProvider';
 
 const CartItem = ({ item }) => {
@@ -18,13 +17,15 @@ const CartItem = ({ item }) => {
                         <p className="lead fw-normal mb-2">{item.name}</p>
                         <p><span className="text-muted">{item.brand}</span></p>
                         <p><span className="text-muted">Precio por unidad: $ </span>{item.price}</p>
+                        <p>x{item.quant} unidades</p>
                     </div>
 
+
                     <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                        <h5 className="mb-0">{(item.price * item.quant)}</h5>
+                        <h5 className="mb-0">$ {(item.price * item.quant)}</h5>
                     </div>
                     <div className="col-md-1 col-lg-1 col-xl-1 text-end">
-                        <button onClick={quitFromCart} className="btn btn-outline-danger btn-sm">X</button>
+                        <button onClick={()=>quitFromCart(item)} className="btn btn-outline-danger btn-sm">X</button>
                     </div>
                 </div>
             </div>

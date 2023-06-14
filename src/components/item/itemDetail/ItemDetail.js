@@ -28,7 +28,7 @@ const ItemDetail = (props) => {
             <p>{product.description}</p>
             <p>Peso: {product.weight}</p>
             <p>Unidades: {product.amount}</p>
-            {goToCart ? <Link to='/cart'>Finalizar compra</Link> : <ItemCount initial={1} stock={product.stock} onAdd={onAdd}/> }
+            {goToCart ? <Link className="btn btn-success mt-2 mx-2" to='/cart'>Finalizar compra</Link> : <ItemCount initial={1} stock={product.stock} onAdd={onAdd}/> }
             
             <button onClick={() =>navigate(-1)} type="button" className="btn btn-outline-success mt-2">Volver </button>
         </div>

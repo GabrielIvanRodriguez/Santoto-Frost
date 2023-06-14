@@ -1,11 +1,12 @@
 import React, { useContext } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../../../context/CartProvider'
 import CartItem from '../cartItem/CartItem';
 
 const CartContainer = () => {
   const { cart, cartClear} = useContext(CartContext);
 
-
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -39,6 +40,12 @@ const CartContainer = () => {
                   <div>
                     <div >
                       <button onClick={cartClear} type="button" className="btn btn-outline-danger btn-block btn-lg">Vaciar carrito</button>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div >
+                      <button onClick={() =>navigate(-1)} type="button" className="btn btn-outline-danger btn-block btn-lg">Volver</button>
                     </div>
                   </div>
 

@@ -4,10 +4,7 @@ import { CartContext } from '../../../context/CartProvider';
 
 const CartItem = ({ item }) => {
 
-    const {quitFromCart, inCart, setInCart} = useContext(CartContext);
-
-    setInCart(true);
-   
+    const {quitFromCart} = useContext(CartContext);   
 
 
     return (
@@ -22,9 +19,7 @@ const CartItem = ({ item }) => {
                         <p><span className="text-muted">{item.brand}</span></p>
                         <p><span className="text-muted">Precio por unidad: $ </span>{item.price}</p>
                     </div>
-                    <div className="col-md-3 col-lg-3 col-xl-2 d-flex">
-                        {<ItemCount item={item} inCart={inCart}/>}
-                    </div>
+
                     <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                         <h5 className="mb-0">{(item.price * item.quant)}</h5>
                     </div>

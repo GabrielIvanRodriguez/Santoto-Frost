@@ -1,5 +1,5 @@
-import React, {useContext} from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, {useContext, useState} from 'react'
+import { Link, useNavigate} from 'react-router-dom'
 import ItemCount from '../itemCount/ItemCount';
 import { CartContext } from '../../../context/CartProvider';
 
@@ -8,10 +8,15 @@ import { CartContext } from '../../../context/CartProvider';
 const ItemDetail = (props) => {
     const { product } = props;                                                  //trae los atributos del objeto product (el producto a renderizar)
 
-    const {inCart, setInCart} = useContext(CartContext)
+    const { addCart } = useContext(CartContext)
+    const [goToCart, setGoToCart] = useState(false);
 
-    const navigate = useNavigate();   
-    setInCart(false);
+    const onAdd = (quant) =>{
+        addCart(product,quant);
+        setGoToCart(true);
+    }
+
+    const navigate = useNavigate();
 
     return (
         <div>
@@ -23,8 +28,9 @@ const ItemDetail = (props) => {
             <p>{product.description}</p>
             <p>Peso: {product.weight}</p>
             <p>Unidades: {product.amount}</p>
-            <ItemCount item={product} inCart={inCart}/>
-            <button onClick={() => navigate(-1)} type="button" className="btn btn-outline-success mt-2">Volver </button>
+            {goToCart ? <Link to='/cart'>Finalizar compra</Link> : <ItemCount initial={1} stock={product.stock} onAdd={onAdd}/> }
+            
+            <button onClick={() =>navigate(-1)} type="button" className="btn btn-outline-success mt-2">Volver </button>
         </div>
     )
 }

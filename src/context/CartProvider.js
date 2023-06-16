@@ -7,13 +7,15 @@ export const CartContext = createContext('')                                    
 const CartProvider = ({ children }) => {                                                      //declaro que los que van a utilizarlo son sus hijos
 
     const [cart,setCart] = useState([]);
+    const [inCart, setInCart] = useState([false]);
 
 
     const addCart = (product,quant) =>{
+
         if(alreadyInCart(cart,product)){
-            setCart(cart.map( item =>{
-               return item.id === product.id ? {...item, quant:(item.quant+quant)} : item
-            }))
+            setCart(cart.map(item =>{
+                return item.id === product.id ? {...item, quant:(item.quant + quant)} : item
+              }));
         }else{
             setCart([...cart, {...product,quant}])
         }
@@ -34,7 +36,9 @@ const CartProvider = ({ children }) => {                                        
     return (
         <CartContext.Provider value={{                                                           //dejo disponible el spinner, el catalogo y el carrito para ser utilizados
             cart,
-            setCart,    
+            setCart,
+            inCart,
+            setInCart,    
             addCart,
             quitFromCart,
             cartClear

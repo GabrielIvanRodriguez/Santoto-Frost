@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'
+import './Item.css'
 
 const Item = (props) => {
 
@@ -19,7 +20,7 @@ const Item = (props) => {
           <p>Stock: {stock}</p>
           <p>$ {price}</p>
           
-          <button className="btn btn-primary m-1" onClick={ () => navigate(`/item/${id}`) }>Ver más</button>
+          <button className="btn btn-primary m-1 btn3d" onClick={ () => navigate(`/item/${id}`) }>Ver más</button>
       
         </div> 
       </div>

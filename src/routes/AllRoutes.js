@@ -24,8 +24,9 @@ const AllRoutes = () => {
                   <Route index element={<Home/>}/>  
                   <Route path="category/:category" element={<ItemListContainer/>}/>
                   <Route path="item/:id" element={<ItemDetailContainer/>}/>
+                  <Route path="/cart" element={<CartContainer/>} />
                 </Route>
-                <Route path="/cart" element={<CartContainer/>} />
+
           </Routes>
         </CartProvider>
       </GlobalProvider>

@@ -7,7 +7,6 @@ export const CartContext = createContext('')                                    
 const CartProvider = ({ children }) => {                                                      //declaro que los que van a utilizarlo son sus hijos
 
     const [cart,setCart] = useState([]);
-    const [inCart, setInCart] = useState(false);
 
 
     const addCart = (product,quant,id) =>{
@@ -31,15 +30,10 @@ const CartProvider = ({ children }) => {                                        
         setCart([]);
     }
 
-
-
-
     return (
         <CartContext.Provider value={{                                                           //dejo disponible el spinner, el catalogo y el carrito para ser utilizados
             cart,
-            setCart,
-            inCart,
-            setInCart,    
+            setCart,    
             addCart,
             quitFromCart,
             cartClear

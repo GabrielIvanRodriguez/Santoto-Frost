@@ -9,16 +9,15 @@ import './ItemDetail.css'
 const ItemDetail = (props) => {
     const { product,id } = props;                                                  //trae los atributos del objeto product (el producto a renderizar)
 
-    const { addCart, setInCart } = useContext(CartContext)
+    const { addCart} = useContext(CartContext)
 
     const [goToCart, setGoToCart] = useState(false);
 
     const navigate = useNavigate();
+    
 
-    setInCart(false);
 
     const onAdd = (quantity) => {
-        product.stock = product.stock - quantity;
         addCart(product, quantity,id);
         setGoToCart(true);
     }

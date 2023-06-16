@@ -1,9 +1,9 @@
-import React, { Fragment, useEffect, useState, useContext } from 'react'
+import React, {useEffect, useState } from 'react'
 import './ItemCount.css'
-import { CartContext } from '../../../context/CartProvider'
 
 
-const ItemCount = ({ initial, item, onAdd }) => {
+
+const ItemCount = ({ initial, item, onAdd}) => {
 
 
   const [canAdd, setCanAdd] = useState(true);
@@ -12,7 +12,6 @@ const ItemCount = ({ initial, item, onAdd }) => {
   const [quant, setQuant] = useState(initial);
 
 
-  const { inCart } = useContext(CartContext);
 
 
 
@@ -35,19 +34,6 @@ const ItemCount = ({ initial, item, onAdd }) => {
 
 
   return (
-    <Fragment>
-      {inCart && (
-        <div className="d-flex flex-column justify-content-center">
-          <p>Stock disponible: {item.stock - quant}</p>
-          <div>
-            <button disabled={!canSub} onClick={() => onAdd(quant - 1)} type="button" className="btn btn-success rounded-circle btn-lg btn3d"><i className="bi bi-dash-circle-fill"></i></button>
-            <span className="btn rounded-circle btn-lg btn3d">{quant}</span>
-            <button disabled={!canAdd} onClick={() => onAdd(quant + 1)} type="button" className="btn btn-primary rounded-circle  btn-lg btn3d"><i className="bi bi-plus-circle-fill"></i></button>  
-          </div>
-        </div>
-      )}
-
-      {!inCart && (
         <div>
           <p>Stock disponible: {item.stock - quant}</p>
           <div className="d-flex justify-content-center">
@@ -58,12 +44,8 @@ const ItemCount = ({ initial, item, onAdd }) => {
           <button disabled={!canBuy} onClick={() => onAdd(quant)} type="button" className="btn btn-primary mx-1 mt-3 btn3d">Agregar al carrito</button>
         </div>
 
-      )}
+      )
 
-
-    </Fragment>
-
-  )
 }
 
 export default ItemCount

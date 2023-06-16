@@ -9,28 +9,30 @@ import CartProvider from '../context/CartProvider'
 import CartContainer from '../components/cart/cartContainer/CartContainer'
 
 
-                                                          //seteo las rutas que va a tener mi pagina, donde en cada una voy a decir qué parametro tiene, y a donde redirecciona.
-                                                          //utilizo 4 rutas atómicas, y 1 que va a tener hijos dentro de ella para lograr asignarlos a traves del llamado a NavBar
-                                                          //en el componente MainLayout
+//seteo las rutas que va a tener mi pagina, donde en cada una voy a decir qué parametro tiene, y a donde redirecciona.
+//utilizo 4 rutas atómicas, y 1 que va a tener hijos dentro de ella para lograr asignarlos a traves del llamado a NavBar
+//en el componente MainLayout
 const AllRoutes = () => {
   return (
-    <BrowserRouter>
-      <GlobalProvider>
-        <CartProvider>
+    <GlobalProvider>
+      <CartProvider>
+        <BrowserRouter>
+
           <Routes>
-                <Route path="/" element={'Santoto Frost'} />
-                <Route path="/" element={<Home/>} />
-                <Route path="/" element={<MainLayout/>}>
-                  <Route index element={<Home/>}/>  
-                  <Route path="category/:category" element={<ItemListContainer/>}/>
-                  <Route path="item/:id" element={<ItemDetailContainer/>}/>
-                  <Route path="/cart" element={<CartContainer/>} />
-                </Route>
+            <Route path="/" element={'Santoto Frost'} />
+            <Route path="/" element={<Home />} />
+            <Route path="/" element={<MainLayout />}>
+              <Route index element={<Home />} />
+              <Route path="category/:category" element={<ItemListContainer />} />
+              <Route path="item/:id" element={<ItemDetailContainer />} />
+              <Route path="/cart" element={<CartContainer />} />
+            </Route>
 
           </Routes>
-        </CartProvider>
-      </GlobalProvider>
-    </BrowserRouter>
+
+        </BrowserRouter>
+      </CartProvider>
+    </GlobalProvider>
   )
 }
 

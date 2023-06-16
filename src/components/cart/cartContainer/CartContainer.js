@@ -6,10 +6,7 @@ import OrderForm from '../../form/OrderForm';
 
 
 const CartContainer = () => {
-  const { cart, cartClear, setInCart } = useContext(CartContext);
-
-  setInCart(true);
-
+  const { cart, cartClear } = useContext(CartContext);
 
   return (
     <div>
@@ -34,14 +31,11 @@ const CartContainer = () => {
                     {cart.map((product, index) => <CartItem key={product.id} item={product} />)}
                   </div>
 
-           
+                  <div>
+                    <OrderForm/>
+                  </div>
 
                   <div className="d-flex flex-column flex-wrap justify-content-center">
-                    <div>
-                      <div>
-                        <button type="button" className="btn btn-primary btn-block mb-2 btn-lg btn3d">Comprar</button>
-                      </div>
-                    </div>
 
                     <div>
                       <div >

@@ -7,7 +7,6 @@ export const CartContext = createContext('')                                    
 const CartProvider = ({ children }) => {                                                      //declaro que los que van a utilizarlo son sus hijos
 
     const [cart,setCart] = useState([]);
-    console.log(cart);
     const [inCart, setInCart] = useState(false);
 
 

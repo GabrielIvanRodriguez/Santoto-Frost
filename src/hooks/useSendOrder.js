@@ -1,6 +1,7 @@
 import React from 'react'
+import {db} from '../services/firebaseConfig'
 import GlobalProvider from '../context/GlobalProvider';
-import { collection, addDoc } from "firebase/firestone"
+import { collection, addDoc } from "firebase/firestore"
 
 
 const useSendOrder = () => {
@@ -8,6 +9,7 @@ const useSendOrder = () => {
     const { setLoading } = GlobalProvider();
 
     const loadOrder = async ({ data }) =>{
+        data.preventDefault();
 
         setLoading(true);
         try{

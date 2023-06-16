@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { CartContext } from '../../../context/CartProvider'
 import CartItem from '../cartItem/CartItem';
 import './CartContainer.css'
+import OrderForm from '../../form/OrderForm';
 
 
 const CartContainer = () => {
@@ -32,6 +33,8 @@ const CartContainer = () => {
                   <div>
                     {cart.map((product, index) => <CartItem key={product.id} item={product} />)}
                   </div>
+
+           
 
                   <div className="d-flex flex-column flex-wrap justify-content-center">
                     <div>

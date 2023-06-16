@@ -22,7 +22,6 @@ const ItemDetail = (props) => {
         addCart(product, quantity,id);
         setGoToCart(true);
     }
-    console.log(product)
     return (
         <div>
             <div>

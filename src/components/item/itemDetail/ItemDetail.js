@@ -7,7 +7,7 @@ import './ItemDetail.css'
 
 
 const ItemDetail = (props) => {
-    const { product } = props;                                                  //trae los atributos del objeto product (el producto a renderizar)
+    const { product,id } = props;                                                  //trae los atributos del objeto product (el producto a renderizar)
 
     const { addCart, setInCart } = useContext(CartContext)
 
@@ -19,10 +19,10 @@ const ItemDetail = (props) => {
 
     const onAdd = (quantity) => {
         product.stock = product.stock - quantity;
-        addCart(product, quantity);
+        addCart(product, quantity,id);
         setGoToCart(true);
     }
-
+    console.log(product)
     return (
         <div>
             <div>

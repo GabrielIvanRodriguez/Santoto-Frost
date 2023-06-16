@@ -1,4 +1,6 @@
-export const alreadyInCart = (cart,product) => cart.some((prod)=>prod.id === product.id);
+export const alreadyInCart = (cart,id) => cart.some((prod)=>prod.id === id);
+
+
 
 
 

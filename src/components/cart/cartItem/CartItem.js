@@ -22,9 +22,6 @@ const CartItem = ({ item }) => {
                     </div>
 
                         
-
-
-
                     <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                         <h5 className="mb-0">$ {(item.price * item.quant)}</h5>
                     </div>

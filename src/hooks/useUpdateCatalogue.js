@@ -1,22 +1,19 @@
 import React from 'react'
-import GlobalProvider from '../context/GlobalProvider'
+import { GlobalContext } from "../../../context/GlobalProvider"
 import { doc, updateDoc } from "firebase/firestone"
 
 
 
 
-const useUpdateCatalogue = (props) => {
+const useUpdateCatalogue = (stock) => {
 
-    const { isAdd, stock, quant } = props;
-    const nextValue = isAdd ? stock - quant : stock + quant;
-
-    const { setLoading } = GlobalProvider();
+    const { setLoading } = useContext(GlobalContext)
 
     const updateStock = async ({ id })=>{
         const updateProduct = doc(db,"products",id);
         setLoading(true)
         try{
-            await updateDoc(updateProduct, {stock:nextValue})
+            await updateDoc(updateProduct, {stock:stock})
             setLoading(false)
             alert('actualizado')
         } catch(error){

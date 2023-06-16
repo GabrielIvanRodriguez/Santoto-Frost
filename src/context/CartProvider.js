@@ -7,17 +7,19 @@ export const CartContext = createContext('')                                    
 const CartProvider = ({ children }) => {                                                      //declaro que los que van a utilizarlo son sus hijos
 
     const [cart,setCart] = useState([]);
-    const [inCart, setInCart] = useState([false]);
+    console.log(cart);
+    const [inCart, setInCart] = useState(false);
 
 
-    const addCart = (product,quant) =>{
+    const addCart = (product,quant,id) =>{
 
-        if(alreadyInCart(cart,product)){
+        if(alreadyInCart(cart,id)){
             setCart(cart.map(item =>{
-                return item.id === product.id ? {...item, quant:(item.quant + quant)} : item
+                return item.id === id ? {...item, quant:(item.quant + quant)} : item
               }));
+            
         }else{
-            setCart([...cart, {...product,quant}])
+            setCart([...cart, {...product,quant,id}])
         }
     } 
     

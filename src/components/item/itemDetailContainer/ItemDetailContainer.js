@@ -24,7 +24,7 @@ const ItemDetailContainer = () => {
       {loading && <Spinner />}
 
       {!loading && (
-        <ItemDetail product={product} />
+        <ItemDetail product={product} id={id} />
       )
 
       }

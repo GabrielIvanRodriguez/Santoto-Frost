@@ -27,8 +27,8 @@ const ItemDetail = (props) => {
                 <p>Santoto Frost - {product.category} - {product.name}</p>
                 <br />
                 <img src={product.img} alt="comida" />
-                <h1>{product.name}</h1>
-                <h2>{product.brand}</h2>
+                <h3>{product.name}</h3>
+                <h4>{product.brand}</h4>
                 <p>{product.description}</p>
                 <p>Peso: {product.weight}</p>
                 <p>Unidades: {product.amount}</p>

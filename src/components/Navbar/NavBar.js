@@ -11,7 +11,7 @@ const NavBar = (props) => {
     return (
         <nav className="navbar navbar-expand-lg bg-white sticky-top shadow-lg mb-5">
             <div className="container-fluid d-flex">
-                <NavLink className="navbar-brand nav-link" to={"/"}>Santoto Frost</NavLink>
+                <NavLink className="navbar-brand nav-link" to={"/"}><img src="https://res.cloudinary.com/dnakxwijm/image/upload/v1687141581/santoto-frost/logos/gsattkshqj3xeydjb0ap.png" alt="logo" style={{height:'80px', width:'80px'}}/></NavLink>
                 <button className="navbar-toggler btn-lg btn3d" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>

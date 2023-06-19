@@ -1,5 +1,7 @@
 import React from 'react'
 import ItemListContainer from '../components/item/itemListContainer/ItemListContainer'
+import './Home.css'
+
 
 const Home = () => {
                                                                         //renderizo un titulo, un subtitulo y llamo al contenedor de la lista de productos que corresponda
@@ -7,8 +9,11 @@ const Home = () => {
   return (
     <div >
       <div className="d-flex flex-column">
-        <h1 className="align-self-start ">Santoto Frost</h1>
-        <h2 className="align-self-start ml-5">Calidad bajo cero</h2>
+        <div className="d-flex">
+        <img style={{width:'250px'}} src="https://res.cloudinary.com/dnakxwijm/image/upload/v1687142217/santoto-frost/logos/monta%C3%B1aLogo.png" alt="montaña"/>
+        <img style={{width:'250px'}} src="https://res.cloudinary.com/dnakxwijm/image/upload/v1687142246/santoto-frost/logos/logoLetras.png" alt="logo"/>
+        <img style={{width:'1000px', paddingLeft:'50px'}} src="https://res.cloudinary.com/dnakxwijm/image/upload/v1687142775/santoto-frost/logos/rianafbsmr74z44gjcfj.png" alt="calidadbajocero"/>
+        </div>
       </div>
 
       <hr/>

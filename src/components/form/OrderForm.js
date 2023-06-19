@@ -18,6 +18,7 @@ const OrderForm = () => {
         },
         cart,
         total: 0
+
     })
 
     useEffect(() => {
@@ -29,15 +30,18 @@ const OrderForm = () => {
     }, [cart])
 
     const handleChange = (e) => {
-        const { name, value } = e.target
+
+        console.log(e)      
+        const { id, value } = e.target
         setForm({
             ...form,
             buyer: {
                 ...form.buyer,
-                [name]: value
+                [id]: value
             }
         })
     }
+    
 
     const { buyer: { email, name, lastName, phoneNumber } } = form;
 
@@ -45,10 +49,12 @@ const OrderForm = () => {
         e.preventDefault();
         if (formValidation([email, name, lastName, phoneNumber])) {
             alert('faltan campos')
+        }else{
+            loadOrder({ data: form });
+            cartClear();
+            alert('orden generada')
         }
-        loadOrder({ data: form });
-        cartClear();
-        alert('orden generada')
+
     }
 
     return (
@@ -56,20 +62,20 @@ const OrderForm = () => {
             <form onSubmit={handleSubmit} className="d-flex flex-column align-items-center justify-content-around">
                 <h1>CheckOUT</h1>
                 <div className="form-group">
-                    <label htmlFor="email">Email address</label>
-                    <input onChange={handleChange} type="email" className="form-control" id="email" aria-describedby="emailHelp" placeholder="Escribe tu email"/>
+                    <label htmlFor="email" className="d-flex align-items-start">Email address</label>
+                    <input onChange={handleChange} type="email" className="form-control mb-2" id="email" aria-describedby="emailHelp" placeholder="Escribe tu email"/>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="name">Name</label>
-                    <input onChange={handleChange} type="text" className="form-control" id="name" aria-describedby="emailHelp" placeholder="Escribe tu nombre"/>
+                    <label htmlFor="name" className="d-flex align-items-start">Nombre</label>
+                    <input onChange={handleChange} type="text" className="form-control mb-2" id="name" aria-describedby="emailHelp" placeholder="Escribe tu nombre"/>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="lastName">Apellido</label>
-                    <input onChange={handleChange} type="text" className="form-control" id="lastName" aria-describedby="emailHelp" placeholder="Escribe tu apellido"/>
+                    <label htmlFor="lastName" className="d-flex align-items-start ">Apellido</label>
+                    <input onChange={handleChange} type="text" className="form-control mb-2" id="lastName" aria-describedby="emailHelp" placeholder="Escribe tu apellido"/>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="phoneNumber">Número de celular</label>
-                    <input onChange={handleChange} type="number" className="form-control " id="phoneNumber" aria-describedby="emailHelp" placeholder="Contacto"/>
+                    <label htmlFor="phoneNumber" className="d-flex align-items-start">Número de celular</label>
+                    <input onChange={handleChange} type="number" className="form-control mb-2 " id="phoneNumber" aria-describedby="emailHelp" placeholder="Contacto"/>
                 </div>
                 <button type="submit" className="btn btn-primary m-3 btn-lg btn3d">Comprar</button>
             </form>

@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+# Santoto Frost - Calidad bajo cero
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Santoto Frost es un e-commerce dedicado a la venta de alimentos congelados que reside en la ciudad de Santo Tomé, Santa Fe, Argentina. La idea de este proyecto, es permitir a los usuarios la compra de dichos productos cumpliendo con un flujo básico de e-commerce.
 
-## Available Scripts
 
-In the project directory, you can run:
+# Autor
 
-### `npm start`
+Esta aplicación web es creada el 01 de junio de 2023 por *Rodríguez Gabriel* como proyecto final del curso de React Js dictado por la plataforma [CoderHouse](https://www.coderhouse.com/).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Creación
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Esta aplicación web se realizó a través de la implementación de componentes para el manejo dinámico del contenido, conectado a una base de datos alojada en Firebase (creada por el autor del proyecto) que contiene el catálogo de productos y el historial de órdenes creadas. Además, se utilizan buenas prácticas tales como el uso de contexts para el acceso a información de manera eficiente, custom hooks para la reutilización de código y ténicas de rendering para la optimización de recursos, entre otras.
 
-### `npm test`
+## Deploy
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+La aplicación web se encuentra disponible en el siguiente link:
+[SantotoFrost](https://649baf9b523eee2a85ef1221--santotofrost.netlify.app/)
 
-### `npm run build`
+## Librerías
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Las librerías utilizadas fueron:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ - react
+ - react router dom
+ - firebase
+ - react toastify (notificaciones)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

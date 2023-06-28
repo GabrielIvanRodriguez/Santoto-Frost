@@ -43,7 +43,7 @@ const CartContainer = () => {                                                   
                     <h3 className="fw-normal mb-0 text-black">Carrito</h3>
                   </div>
 
-                  <div className="d-flex justify-content-around">
+                  <div className="d-flex justify-content-around flex-wrap">
                       <div>
                         {cart.map((product, index) => <CartItem key={product.id} item={product} />)}
                       </div>

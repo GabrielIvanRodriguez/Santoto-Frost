@@ -1,10 +1,10 @@
 import React,{useContext} from 'react'
 import { CartContext } from '../../../context/CartProvider';
-import ItemCount from '../../item/itemCount/ItemCount';
 
-const CartItem = ({ item }) => {
 
-    const {quitFromCart} = useContext(CartContext);   
+const CartItem = ({ item }) => {                                            //Renderizo cada item del carrito
+
+    const {quitFromCart} = useContext(CartContext);                                 
 
 
     return (

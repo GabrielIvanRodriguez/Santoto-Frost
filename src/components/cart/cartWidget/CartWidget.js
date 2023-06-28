@@ -3,12 +3,12 @@ import './CartWidget.css';
 import { CartContext } from '../../../context/CartProvider';
 import { Link } from "react-router-dom";
 
-const CartWidget = () => {                                                      //renderizo un icono de carrito con una cantidad hardcodeada
-    const { cart } = useContext(CartContext)
-    const [itemQuant, setItemQuant] = useState(0);
+const CartWidget = () => {                                                      //renderizo un icono de carrito con la cantidad de items dentro
+    const { cart } = useContext(CartContext)                                    //me traigo el carrito desde el context
+    const [itemQuant, setItemQuant] = useState(0);                              //creo una variable de estado para la cantidad de items dentro del carrito
 
-    useEffect(()=>{
-        const totalQuant = cart.reduce((prev, curr) => prev + curr.quant, 0)
+    useEffect(()=>{                                                                             //controlo el ciclo de vida de la longitud del carrito para que se actualice
+        const totalQuant = cart.reduce((prev, curr) => prev + curr.quant, 0)                    //en tiempo real
         cart.length > 0 ? setItemQuant(totalQuant) : setItemQuant(0);
     })
 

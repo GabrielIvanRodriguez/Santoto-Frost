@@ -30,6 +30,7 @@ const MainLayout = () => {                                        //llamo al com
                                                                   //es el unico que va a cambiar, y luego ubico el footer que, al igual que la navBar, se mantendrá estatico
   return (
     <Fragment>
+      
       <NavBar navBarItems={navBarItems}/>
       <Outlet/>
       <Footer/>

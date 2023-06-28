@@ -15,12 +15,15 @@ import 'react-toastify/dist/ReactToastify.css';
 //seteo las rutas que va a tener mi pagina, donde en cada una voy a decir qué parametro tiene, y a donde redirecciona.
 //utilizo 4 rutas atómicas, y 1 que va a tener hijos dentro de ella para lograr asignarlos a traves del llamado a NavBar
 //en el componente MainLayout
+//tambien englobo todas las rutas con los proveedores de context para que puedan utilizarlos
 const AllRoutes = () => {
   return (
     <GlobalProvider>
+      
       <CartProvider>
       <ToastContainer/>
         <BrowserRouter>
+        
 
           <Routes>
             <Route path="/" element={'Santoto Frost'} />

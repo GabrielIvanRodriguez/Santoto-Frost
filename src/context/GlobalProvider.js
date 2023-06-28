@@ -5,11 +5,11 @@ export const GlobalContext = createContext('')                                  
 
 const GlobalProvider = ({ children }) => {                                                      //declaro que los que van a utilizarlo son sus hijos
 
-    const [loading, setLoading] = useState(true);                                          //spinner disponible para todos los componentes    
+    const [loading, setLoading] = useState(true);                                          //variable de estado para renderizar el spinner condicionalmente    
 
 
     return (
-        <GlobalContext.Provider value={{                                                           //dejo disponible el spinner, el catalogo y el carrito para ser utilizados
+        <GlobalContext.Provider value={{                                                           //dejo disponible la variable de estado booleeana y su funcion modificadora
             loading,
             setLoading,
         }}>{children}</GlobalContext.Provider>                                                     //dejo para que lo utilicen sus hijos

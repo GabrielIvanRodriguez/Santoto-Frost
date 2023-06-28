@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
 import './Item.css'
 
@@ -6,11 +6,13 @@ const Item = (props) => {
 
   const { id, img, name, weight, amount, price, stock } = props;                  //me traigo las propiedades que vienen en props desestructuradas
 
+
   const navigate = useNavigate();                                                                   //permito el uso de la funcion navigate()
 
                                                                                                   //renderizo 1 producto
   return (
     <div>
+
       <div className="card m-3 " style={{width: '18rem', height: '40rem'}}>
         <img src={img} height={100000} className="card-img-top" alt="comida"/>
         <div className="card-body">

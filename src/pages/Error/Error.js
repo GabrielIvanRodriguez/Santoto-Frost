@@ -3,7 +3,7 @@ import {useNavigate } from 'react-router-dom'
 import './Error.css'
 
 const Error = () => {
-    const navigate = useNavigate();
+    const navigate = useNavigate();                                 //renderizo pagina de error
   return (
     <section className="p-0  bg-img cover-background" style={{backgroundImage: "url(https://bootdey.com/img/Content/bg1.jpg)"}}>
         <div className="container-fluid d-flex flex-column">

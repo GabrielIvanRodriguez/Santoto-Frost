@@ -4,8 +4,8 @@ import './Home.css'
 
 
 const Home = () => {
-                                                                        //renderizo un titulo, un subtitulo y llamo al contenedor de la lista de productos que corresponda
-                                                                                      //inicialmente con todos los productos
+                                                                        //renderizo identidad de la empresa
+                                                                                      //inicialmente con todos los productos que esten en itemlistcontainer
   return (
     <div >
       <div className="d-flex flex-column">
@@ -18,6 +18,7 @@ const Home = () => {
 
       <hr/>
       <ItemListContainer/>
+      
       
 
     </div>
